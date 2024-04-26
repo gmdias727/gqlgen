@@ -68,7 +68,7 @@ This will create our suggested package layout. You can modify these paths in gql
 │   ├── model                - A package for all your graph models, generated or otherwise
 │   │   └── models_gen.go
 │   ├── resolver.go          - The root graph resolver type. This file wont get regenerated
-│   ├── schema.graphqls      - Some schema. You can split the schema into as many graphql files as you like
+│   ├── schema.graphql      - Some schema. You can split the schema into as many graphql files as you like
 │   └── schema.resolvers.go  - the resolver implementation for schema.graphql
 └── server.go                - The entry point to your app. Customize it however you see fit
 ```
@@ -77,7 +77,7 @@ This will create our suggested package layout. You can modify these paths in gql
 
 gqlgen is a schema-first library — before writing code, you describe your API using the GraphQL
 [Schema Definition Language](http://graphql.org/learn/schema/). By default this goes into a file called
-`schema.graphqls` but you can break it up into as many different files as you want.
+`schema.graphql` but you can break it up into as many different files as you want.
 
 The schema that was generated for us was:
 ```graphql
@@ -109,7 +109,7 @@ type Mutation {
 
 ### Implement the resolvers
 
-When executed, gqlgen's `generate` command compares the schema file (`graph/schema.graphqls`) with the models `graph/model/*`, and, wherever it
+When executed, gqlgen's `generate` command compares the schema file (`graph/schema.graphql`) with the models `graph/model/*`, and, wherever it
 can, it will bind directly to the model.  That was done already when `init` was run.  We'll edit the schema later in the tutorial, but for now, let's look at what was generated already.
 
 If we take a look in `graph/schema.resolvers.go` we will see all the times that gqlgen couldn't match them up. For us
